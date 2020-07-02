@@ -1,0 +1,15 @@
+{
+  "name": "email-sender",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Aleksei Sablin as IIICoder",
+  "license": "ISC",
+  "dependencies": {
+    "nodemailer": "^6.4.10",
+    "xlsx": "^0.16.3"
+  }
+}
