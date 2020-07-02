@@ -10,9 +10,9 @@
 Установить nodejs:
 [https://nodejs.org/en/](https://nodejs.org/en/)
 
-Скачать проект с репозитория [по ссылке]() (либо клонировать с помощью git)
+Скачать проект с репозитория [по ссылке](https://github.com/IIICoder/email-sender/archive/master.zip) (либо клонировать с помощью git)
 ```
-git clone 
+git clone https://github.com/IIICoder/email-sender.git
 ```
 
 Перейти в папку проекта:
@@ -26,9 +26,10 @@ npm install
 ```
 
 Отредактировать файлы:
-* *recipients.xls*
-* *senders.xls*
-* *mail.txt*
+* *recipients.xls* - указать адреса получателей
+* *senders.xls* - указать настройки почтовых ящиков отправителей
+* *mail.txt* - указать тему и тело сообщения
+* *index.js* - отредактировать поле ***from***, поменяв имя отправителя
 
 Запустить код:
 ```

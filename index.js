@@ -29,7 +29,7 @@ recipientsStack.forEach(recipientEmail =>
 
         // send mail with defined transport object
         let info = await transporter.sendMail({
-            from: `"EEGames 👻" <${senderAccount.login}>`, // sender address //TODO: обратить внимание на настройку отправителя
+            from: `"GoodProgger 👻" <${senderAccount.login}>`, // sender address //TODO: обратить внимание на настройку отправителя
             to: `${recipientEmail}`, // list of receivers
             subject: messageParser.subject, // Subject line
             text: messageParser.body, // plain text body
