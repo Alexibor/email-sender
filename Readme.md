@@ -33,6 +33,6 @@ npm install
 
 Запустить код:
 ```
-node run start
+npm run start
 ```
 
