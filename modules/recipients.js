@@ -9,10 +9,10 @@ const XLSX = require('xlsx');
 function recipients(path)
 {
     let arr = [];
-
+    let recipientsBook;
     try
     {
-        let recipientsBook = XLSX.readFile(path); // получение файла "книги" получателей
+        recipientsBook = XLSX.readFile(path); // получение файла "книги" получателей
     } catch (error)
     {
         error.submessage = 'Ошибка чтения файла';
@@ -21,7 +21,7 @@ function recipients(path)
     let recipientsFirstSheetName = recipientsBook.SheetNames[0]; // получение имени первого листа из книги получателей
     let recipientsSheet = recipientsBook.Sheets[recipientsFirstSheetName]; // получение первого листа из книги получателей по имени
     let recipientsRange = XLSX.utils.decode_range(recipientsSheet['!ref']); // получение границ листа
-    for (let R = recipientsRange.s.r + 1; R <= recipientsRange.e.r; ++R) // перебор всех значений в пределах границ листа
+    for (let R = recipientsRange.s.r; R <= recipientsRange.e.r; ++R) // перебор всех значений в пределах границ листа
     {
         for (let C = recipientsRange.s.c; C <= recipientsRange.e.c; ++C)
         {
@@ -29,7 +29,7 @@ function recipients(path)
             let recipientsCellRef = XLSX.utils.encode_cell(recipientsCellAdress); // преобразование адреса ячейки в буквенно-цифровой вид
             let recipientsDesiredCell = recipientsSheet[recipientsCellRef]; // получение содержимого ячейки
             let recipientsDesiredValue = (recipientsDesiredCell ? recipientsDesiredCell.v : undefined); // получение данных ячейки, если они есть
-            if (!sendersDesiredValue) continue; //проверка получения данных, чтобы не плодить undefined значения
+            if (!recipientsDesiredValue) continue; //проверка получения данных, чтобы не плодить undefined значения
             if (validateEmail(recipientsDesiredValue)) // проверка почтового ящика на корректность (regexp - это не панацея, но от мелких ошибок защитит)
             {
                 arr.push(recipientsDesiredValue); // помещаем корректные данные в массив
